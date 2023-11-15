@@ -1,17 +1,20 @@
 package christmas.controller;
 
+import static christmas.service.Service.checkEvent;
 import static christmas.vaildation.Validation.OnlyDrinksOrdered;
 
-import christmas.model.ExpectedVisitDate;
+import christmas.model.Event;
 import christmas.model.OrderMenu;
+import christmas.model.VisitDate;
 import christmas.view.InputView;
 import christmas.view.OutputView;
 
 public class ChrismasController {
     private final InputView inputView;
     private final OutputView outputView;
-    private ExpectedVisitDate expectedVisitDate;
+    private VisitDate visitDate;
     private OrderMenu orderMenu;
+    private Event event;
 
     public ChrismasController() {
         inputView = new InputView();
@@ -20,17 +23,19 @@ public class ChrismasController {
 
     public void start() {
         outputView.printHelloMessage();
-        expectedVisitDate = inputVisitDate();
+        visitDate = inputVisitDate();
         orderMenu = inputMenu();
-        outputView.printOrderMenu(expectedVisitDate, orderMenu);
+        outputView.printOrderMenu(visitDate, orderMenu);
         outputView.printTotalAmount(orderMenu);
         outputView.printFreeMenu(orderMenu);
+        event = checkEvent(orderMenu, visitDate);
+        outputView.printBenefitDetails(event);
     }
 
-    private ExpectedVisitDate inputVisitDate() {
+    private VisitDate inputVisitDate() {
         while (true) {
             try {
-                return new ExpectedVisitDate(inputView.inputDate());
+                return new VisitDate(inputView.inputDate());
             } catch (IllegalArgumentException e) {
                 outputView.printDateError();
             }
