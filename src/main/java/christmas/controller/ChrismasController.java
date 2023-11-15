@@ -1,6 +1,9 @@
 package christmas.controller;
 
+import static christmas.vaildation.Validation.OnlyDrinksOrdered;
+
 import christmas.model.ExpectedVisitDate;
+import christmas.model.OrderMenu;
 import christmas.view.InputView;
 import christmas.view.OutputView;
 
@@ -8,6 +11,7 @@ public class ChrismasController {
     private final InputView inputView;
     private final OutputView outputView;
     private ExpectedVisitDate expectedVisitDate;
+    private OrderMenu orderMenu;
 
     public ChrismasController() {
         inputView = new InputView();
@@ -16,16 +20,29 @@ public class ChrismasController {
 
     public void start() {
         outputView.printHelloMessage();
-        inputVisitDate();
+        expectedVisitDate = inputVisitDate();
+        orderMenu = inputMenu();
     }
 
-    private void inputVisitDate() {
+    private ExpectedVisitDate inputVisitDate() {
         while (true) {
             try {
-                expectedVisitDate = new ExpectedVisitDate(inputView.inputDate());
-                return;
+                return new ExpectedVisitDate(inputView.inputDate());
+
             } catch (IllegalArgumentException e) {
-                outputView.printError(e);
+                outputView.printDateError();
+            }
+        }
+    }
+
+    private OrderMenu inputMenu() {
+        while (true) {
+            try {
+                OrderMenu menu = new OrderMenu(inputView.inputMenu());
+                OnlyDrinksOrdered(menu);
+                return menu;
+            } catch (IllegalArgumentException e) {
+                outputView.printMenuError();
             }
         }
     }
