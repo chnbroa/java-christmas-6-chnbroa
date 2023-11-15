@@ -2,6 +2,7 @@ package christmas.view;
 
 import static christmas.service.Service.parseMenuItems;
 import static christmas.service.Service.splitStringToList;
+import static christmas.vaildation.Validation.checkBlank;
 import static christmas.vaildation.Validation.checkComma;
 import static christmas.vaildation.Validation.isNotNumber;
 
@@ -22,6 +23,7 @@ public class InputView {
     public List<Menu> inputMenu() {
         System.out.println(INPUT_MENU_MESSAGE);
         String menu = Console.readLine();
+        checkBlank(menu);
         checkComma(menu);
         return parseMenuItems(splitStringToList(menu, COMMA));
     }
