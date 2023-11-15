@@ -38,7 +38,7 @@ public class Event {
     }
 
     public int getTotalDiscount() {
-        return dayDiscount + weekdayDiscount + specialDiscount + giveawayDiscount;
+        return dayDiscount + weekdayDiscount + weekendDiscount + specialDiscount + giveawayDiscount;
     }
-    
+
 }

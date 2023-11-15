@@ -15,6 +15,9 @@ public class OutputView {
     private static final String TOTAL_AMOUNT = "<할인 전 총주문 금액>";
     private static final String FREE_MENU = "<증정 메뉴>";
     private static final String BENEFIT_DETAILS = "<혜택 내역>";
+    private static final String TOTAL_BENEFIT_AMOUNT = "<총혜택 금액>";
+
+
     private NumberFormat numberFormat;
 
     public OutputView() {
@@ -96,4 +99,8 @@ public class OutputView {
         }
     }
 
+    public void printTotalBenefitAmount(Event event) {
+        System.out.println(TOTAL_BENEFIT_AMOUNT);
+        System.out.println(numberFormat.format(event.getTotalDiscount() * -1) + "원");
+    }
 }

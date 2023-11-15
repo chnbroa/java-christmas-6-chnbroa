@@ -30,6 +30,7 @@ public class ChrismasController {
         outputView.printFreeMenu(orderMenu);
         event = checkEvent(orderMenu, visitDate);
         outputView.printBenefitDetails(event);
+        outputView.printTotalBenefitAmount(event);
     }
 
     private VisitDate inputVisitDate() {
