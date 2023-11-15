@@ -38,8 +38,16 @@ public class OrderMenu {
         for (String menu : orderMenu.keySet()) {
             sum += orderMenu.get(menu);
         }
-
         return sum;
+    }
+
+    public int getTotalAmount() {
+        int total = 0;
+        for (String menu : orderMenu.keySet()) {
+            MenuItem menuItem = MenuItem.valueOf(menu);
+            total += menuItem.getPrice() * orderMenu.get(menu);
+        }
+        return total;
     }
 
     @Override
@@ -48,7 +56,6 @@ public class OrderMenu {
         for (Map.Entry<String, Integer> menu : orderMenu.entrySet()) {
             stringBuilder.append(menu.getKey()).append(" ").append(menu.getValue()).append("개\n");
         }
-        stringBuilder.append("\n");
         return stringBuilder.toString();
     }
 }

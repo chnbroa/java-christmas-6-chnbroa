@@ -23,6 +23,8 @@ public class ChrismasController {
         expectedVisitDate = inputVisitDate();
         orderMenu = inputMenu();
         outputView.printOrderMenu(expectedVisitDate, orderMenu);
+        outputView.printTotalAmount(orderMenu);
+        
     }
 
     private ExpectedVisitDate inputVisitDate() {
