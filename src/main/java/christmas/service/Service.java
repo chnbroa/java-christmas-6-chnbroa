@@ -26,5 +26,12 @@ public class Service {
         return menus;
     }
 
+    public static String calculateFreeMenu(int totalAmount) {
+        if (totalAmount > 120000) {
+            return "샴페인 1개";
+        }
+        return "없음";
+    }
+
 
 }

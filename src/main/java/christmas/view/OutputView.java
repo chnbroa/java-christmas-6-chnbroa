@@ -1,5 +1,7 @@
 package christmas.view;
 
+import static christmas.service.Service.calculateFreeMenu;
+
 import christmas.model.ExpectedVisitDate;
 import christmas.model.OrderMenu;
 import java.text.NumberFormat;
@@ -10,6 +12,7 @@ public class OutputView {
     private static final String MENU_ERROR_MESSAGE = "[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.";
     private static final String ORDER_MENU = "<주문 메뉴>";
     private static final String TOTAL_AMOUNT = "<할인 전 총주문 금액>";
+    private static final String FREE_MENU = "<증정 메뉴>";
     private NumberFormat numberFormat;
 
     public OutputView() {
@@ -37,6 +40,13 @@ public class OutputView {
     public void printTotalAmount(OrderMenu orderMenu) {
         System.out.println(TOTAL_AMOUNT);
         System.out.println(numberFormat.format(orderMenu.getTotalAmount()) + "원");
+        System.out.println();
+    }
+
+    public void printFreeMenu(OrderMenu orderMenu) {
+        System.out.println(FREE_MENU);
+        System.out.println(calculateFreeMenu(orderMenu.getTotalAmount()));
+        System.out.println();
     }
 
 }

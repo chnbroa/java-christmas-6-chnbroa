@@ -24,7 +24,7 @@ public class ChrismasController {
         orderMenu = inputMenu();
         outputView.printOrderMenu(expectedVisitDate, orderMenu);
         outputView.printTotalAmount(orderMenu);
-        
+        outputView.printFreeMenu(orderMenu);
     }
 
     private ExpectedVisitDate inputVisitDate() {
