@@ -45,4 +45,16 @@ public class Event {
         return total - (dayDiscount + weekdayDiscount + weekendDiscount + specialDiscount);
     }
 
+    public String getBadge() {
+        if (getTotalDiscount() > 20000) {
+            return "산타";
+        }
+        if (getTotalDiscount() > 10000) {
+            return "트리";
+        }
+        if (getTotalDiscount() > 5000) {
+            return "별";
+        }
+        return "없음";
+    }
 }

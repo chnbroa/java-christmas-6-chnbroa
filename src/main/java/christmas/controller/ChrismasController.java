@@ -32,6 +32,7 @@ public class ChrismasController {
         outputView.printBenefitDetails(event);
         outputView.printTotalBenefitAmount(event);
         outputView.printExoectedAmount(event.getExoectedAmount(orderMenu.getTotalAmount()));
+        outputView.printBadge(event);
     }
 
     private VisitDate inputVisitDate() {

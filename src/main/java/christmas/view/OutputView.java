@@ -17,6 +17,7 @@ public class OutputView {
     private static final String BENEFIT_DETAILS = "<혜택 내역>";
     private static final String TOTAL_BENEFIT_AMOUNT = "<총혜택 금액>";
     private static final String EXPECTED_AMOUNT = "<할인 후 예상 결제 금액>";
+    private static final String BADGE = "<12월 이벤트 배지>";
 
 
     private NumberFormat numberFormat;
@@ -110,6 +111,11 @@ public class OutputView {
         System.out.println(EXPECTED_AMOUNT);
         System.out.println(numberFormat.format(amount) + "원");
         System.out.println();
+    }
 
+    public void printBadge(Event event) {
+        System.out.println(BADGE);
+        System.out.println(event.getBadge());
+        System.out.println();
     }
 }
