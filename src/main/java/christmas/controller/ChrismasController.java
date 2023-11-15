@@ -31,6 +31,7 @@ public class ChrismasController {
         event = checkEvent(orderMenu, visitDate);
         outputView.printBenefitDetails(event);
         outputView.printTotalBenefitAmount(event);
+        outputView.printExoectedAmount(event.getExoectedAmount(orderMenu.getTotalAmount()));
     }
 
     private VisitDate inputVisitDate() {

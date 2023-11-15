@@ -41,4 +41,8 @@ public class Event {
         return dayDiscount + weekdayDiscount + weekendDiscount + specialDiscount + giveawayDiscount;
     }
 
+    public int getExoectedAmount(int total) {
+        return total - (dayDiscount + weekdayDiscount + weekendDiscount + specialDiscount);
+    }
+
 }
