@@ -22,13 +22,13 @@ public class ChrismasController {
         outputView.printHelloMessage();
         expectedVisitDate = inputVisitDate();
         orderMenu = inputMenu();
+        outputView.printOrderMenu(expectedVisitDate, orderMenu);
     }
 
     private ExpectedVisitDate inputVisitDate() {
         while (true) {
             try {
                 return new ExpectedVisitDate(inputView.inputDate());
-
             } catch (IllegalArgumentException e) {
                 outputView.printDateError();
             }

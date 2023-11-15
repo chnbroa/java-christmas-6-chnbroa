@@ -44,7 +44,12 @@ public class OrderMenu {
 
     @Override
     public String toString() {
-        return "orderMenu=" + orderMenu;
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Map.Entry<String, Integer> menu : orderMenu.entrySet()) {
+            stringBuilder.append(menu.getKey()).append(" ").append(menu.getValue()).append("개\n");
+        }
+        stringBuilder.append("\n");
+        return stringBuilder.toString();
     }
 }
 
